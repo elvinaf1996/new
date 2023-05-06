@@ -1,9 +1,9 @@
 package tests;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
-import jdk.jfr.Description;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.By;
@@ -18,7 +18,6 @@ import static com.codeborne.selenide.Selenide.switchTo;
 
 @Feature("Second Test")
 @Owner("Григорий Герасимов")
-@Description("Добавляем нужный отель в избранное и удаляем его из избранного на новой странице")
 @DisplayName("Добавляем нужный отель в избранное и удаляем его из избранного на новой странице")
 public class SecondSelenideTest extends BaseTest {
     HomePage homePage = new HomePage();
@@ -40,6 +39,7 @@ public class SecondSelenideTest extends BaseTest {
 //     1.6 добавить в избранное и перейти на страницу лучшего отеля
 //     1.7 проверить название открытого отеля
 //     1.8 удалить отель из избранного
+    @Description("Добавляем нужный отель в избранное и удаляем его из избранного на новой странице")
     @Test
     public void bookingFindHotel2() {
         homePage.openHomePage()
@@ -62,6 +62,5 @@ public class SecondSelenideTest extends BaseTest {
         hotelPage.wishList().checkHotel2NamePage(expectNameHotel);
 
     }
-
 }
 
