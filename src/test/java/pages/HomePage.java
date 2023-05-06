@@ -5,12 +5,12 @@ import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
-import static tests.BaseTest.config;
-
 import static com.codeborne.selenide.Selenide.$;
+import static tests.BaseTest.config;
 
 
 public class HomePage {
+
     private final static By ACCEPT_COOKIE_BUTTON = By.xpath("//button[@id='onetrust-accept-btn-handler']");
 
     private final static By SEARCH_FIELD = By.xpath("//input[@ id=':Ra9:']");
@@ -26,22 +26,26 @@ public class HomePage {
         Selenide.open(config.baseUrl());
         return this;
     }
+
     @Step("Принять Cookie")
     public HomePage acceptCookie() {
         $(ACCEPT_COOKIE_BUTTON).click();
         return this;
     }
+
     @Step("Ввести в поле поиска нужный город")
     public HomePage searchCity(String city) {
         $(SEARCH_FIELD).sendKeys(city);
         $(FIRST_IN_DROPDOWN).shouldHave(Condition.text(city));
         return this;
     }
+
     @Step("Нажать на поле ввода дат")
     public HomePage selectData() {
         $(DATA_FIELD).click();
         return this;
     }
+
     @Step("Нажать на поле кнопку Найти")
     public HomePage searchHotels() {
         $(SUBMIT_BUTTON).click();
